@@ -4,16 +4,19 @@ import {HistoryItem} from "./schemas/history.schema";
 import {HistoryitemsModule} from "./historyitems/historyitems.module";
 import { UsersModule } from './users/users.module';
 import {ConfigModule} from "@nestjs/config";
+import * as process from "process";
+import {User} from "./schemas/user.schema";
 
 @Module({
   imports: [
       ConfigModule.forRoot({
-          envFilePath: '.env'
+          envFilePath: `.${process.env.NODE_ENV}.env`
       }),
       MongooseModule.forRoot(process.env.DBCONNECT),
       HistoryItem,
       HistoryitemsModule,
-      UsersModule
+      UsersModule,
+      User
   ],
 })
 export class AppModule {}
