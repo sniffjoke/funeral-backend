@@ -14,7 +14,9 @@ export class HistoryitemsService {
 
     async create(createHistoryItems: CreateArrayDto) {
         const newHistoryItems = new this.historyModel(createHistoryItems)
-        return newHistoryItems.save()
+        // await newHistoryItems.$set('author', ...)
+        await newHistoryItems.save()
+        return newHistoryItems
     }
 
     async findOne(id: string) {

@@ -6,6 +6,9 @@ import { UsersModule } from './users/users.module';
 import {ConfigModule} from "@nestjs/config";
 import * as process from "process";
 import {User} from "./schemas/user.schema";
+import { RolesModule } from './roles/roles.module';
+import {Role} from "./schemas/role.schema";
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,7 +19,10 @@ import {User} from "./schemas/user.schema";
       HistoryItem,
       HistoryitemsModule,
       UsersModule,
-      User
+      User,
+      RolesModule,
+      Role,
+      AuthModule
   ],
 })
 export class AppModule {}
